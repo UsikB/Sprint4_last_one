@@ -1,4 +1,4 @@
-package ru.yandex_praktikum.sprint4.Chrome;
+package ru.yandex_praktikum_sprint4.chrome;
 
 import org.junit.After;
 import org.junit.Test;
