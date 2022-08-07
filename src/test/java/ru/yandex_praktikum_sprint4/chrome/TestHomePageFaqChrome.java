@@ -22,6 +22,7 @@ public class TestHomePageFaqChrome {
     // Тест первого вопроса
     @Test
     public void test1() {
+        System.setProperty("webdriver.chrome.driver","C:/WebDriver/chromedriver.exe");
         driver = new ChromeDriver();
     // подключаемся к странице
         driver.get("https://qa-scooter.praktikum-services.ru/");
@@ -45,6 +46,7 @@ public class TestHomePageFaqChrome {
     // Тест второго вопроса
     @Test
     public void test2() {
+        System.setProperty("webdriver.chrome.driver","C:/WebDriver/chromedriver.exe");
         driver = new ChromeDriver();
         // подключаемся к странице
         driver.get("https://qa-scooter.praktikum-services.ru/");
@@ -68,6 +70,7 @@ public class TestHomePageFaqChrome {
     // Тест третьего вопроса
     @Test
     public void test3() {
+        System.setProperty("webdriver.chrome.driver","C:/WebDriver/chromedriver.exe");
         driver = new ChromeDriver();
         // подключаемся к странице
         driver.get("https://qa-scooter.praktikum-services.ru/");
@@ -91,6 +94,7 @@ public class TestHomePageFaqChrome {
     // Тест четвертого вопроса
     @Test
     public void test4() {
+        System.setProperty("webdriver.chrome.driver","C:/WebDriver/chromedriver.exe");
         driver = new ChromeDriver();
         // подключаемся к странице
         driver.get("https://qa-scooter.praktikum-services.ru/");
@@ -114,6 +118,7 @@ public class TestHomePageFaqChrome {
     // Тест пятого вопроса
     @Test
     public void test5() {
+        System.setProperty("webdriver.chrome.driver","C:/WebDriver/chromedriver.exe");
         driver = new ChromeDriver();
         //    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         // подключаемся к странице
@@ -138,6 +143,7 @@ public class TestHomePageFaqChrome {
     // Тест шестого вопроса
     @Test
     public void test6() {
+        System.setProperty("webdriver.chrome.driver","C:/WebDriver/chromedriver.exe");
         driver = new ChromeDriver();
         // подключаемся к странице
         driver.get("https://qa-scooter.praktikum-services.ru/");
@@ -161,6 +167,7 @@ public class TestHomePageFaqChrome {
     // Тест седьмого вопроса
     @Test
     public void test7() {
+        System.setProperty("webdriver.chrome.driver","C:/WebDriver/chromedriver.exe");
         driver = new ChromeDriver();
         // подключаемся к странице
         driver.get("https://qa-scooter.praktikum-services.ru/");
@@ -184,6 +191,7 @@ public class TestHomePageFaqChrome {
     // Тест восьмого вопроса
     @Test
     public void test8() {
+        System.setProperty("webdriver.chrome.driver","C:/WebDriver/chromedriver.exe");
         driver = new ChromeDriver();
         // подключаемся к странице
         driver.get("https://qa-scooter.praktikum-services.ru/");
