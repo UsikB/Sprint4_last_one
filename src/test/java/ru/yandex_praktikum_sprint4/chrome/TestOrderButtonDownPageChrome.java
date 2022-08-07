@@ -14,6 +14,7 @@ import ru.yandex_praktikum.sprint4.HomePage;
 @RunWith(Parameterized.class)
 public class TestOrderButtonDownPageChrome {
     WebDriver driver;
+
     private final String name;
     private final String surName;
     private final String adress;
@@ -46,6 +47,7 @@ public class TestOrderButtonDownPageChrome {
 
     @Test
     public void test() {
+        System.setProperty("webdriver.chrome.driver","C:/WebDriver/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("window-size=1920,1080");
         WebDriver driver = new ChromeDriver(options);

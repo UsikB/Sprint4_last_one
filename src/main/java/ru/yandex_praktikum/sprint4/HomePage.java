@@ -66,8 +66,8 @@ public class HomePage {
 
     // метод ожидания кликабильности списка «Вопросы о важном»
     public void waitForLoadHomePage() {
-        new WebDriverWait(driver, 20)
-                .until(ExpectedConditions.elementToBeClickable(faqQuestion));
+        new WebDriverWait(driver, 60)
+                .until(ExpectedConditions.elementToBeClickable(faqQuestionItem1));
     }
 
     // метод ожидания загрузки списка «Вопросы о важном»
@@ -177,7 +177,7 @@ public class HomePage {
     // ******************************** методы для ЗАДАНИЯ 2*********************************************//
     // метод ожидания кликабильности Заказать сверху
     public void waitForLoadOrderButtonUpPage() {
-        new WebDriverWait(driver, 3)
+        new WebDriverWait(driver, 30)
                 .until(ExpectedConditions.elementToBeClickable(orderButtonUpPage));
     }
     // клик по кнопке Заказать вверху
@@ -186,16 +186,16 @@ public class HomePage {
     }
     //скрол до конпки Заказать снизу
     public void scrollToButtonDownPage() {
-        WebElement element = driver.findElement(orderButtonDownPageBig);
+        WebElement element = driver.findElement(orderButtonDownPageMidle);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(false);", element);
     }
     // метод ожидания кликабильности Заказать снизу
     public void waitForLoadOrderButtonDownPage() {
-        new WebDriverWait(driver, 20)
-                .until(ExpectedConditions.elementToBeClickable(orderButtonDownPageBig));
+        new WebDriverWait(driver, 60)
+                .until(ExpectedConditions.elementToBeClickable(orderButtonDownPageMidle));
     }
     // клик по кнопке Заказать снизу
     public void clickOrderButtonDownPage() {
-        driver.findElement(orderButtonDownPageBig).click();
+        driver.findElement(orderButtonDownPageMidle).click();
     }
 }

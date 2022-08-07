@@ -46,6 +46,7 @@ public class TestOrderButtonUpPageChrome {
 
     @Test
     public void test() {
+        System.setProperty("webdriver.chrome.driver","C:/WebDriver/chromedriver.exe");
         driver = new ChromeDriver();
         // подключаемся к странице
         driver.get("https://qa-scooter.praktikum-services.ru/");

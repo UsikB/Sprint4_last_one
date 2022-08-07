@@ -25,7 +25,7 @@ public class DataRentPage {
     // локатор заголовка формы "подтвердить заказа"
     private final By orderModalConfirm = By.xpath(".//div[@class='Order_ModalHeader__3FDaJ'  and contains(text(),'Хотите оформить заказ')]");
     //локатор заголовка формы "Заказа оформлен"
-    private final By orderModalFinal = By.xpath(".//div[@class='Order_ModalHeader__3FDaJ'  and contains(text(),'Заказ оформлен')]");
+    private final By orderModalFinal = By.xpath("//div/div[2]/div[5]/div[1]'  and contains(text(),'Заказ оформлен')]");
      private final By okButton =  By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM'  and contains(text(),'Да')]");
     // методы зполнения полей формы Аренды
     public DataRentPage(WebDriver driver) {
