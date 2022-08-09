@@ -47,7 +47,6 @@ public class TestOrderButtonDownPageFirefox {
 
     @Test
     public void test() {
-        System.setProperty("webdriver.gecko.driver","c:/geckodriver-v0.31.0-win64/geckodriver.exe");
         driver = new FirefoxDriver();
         // подключаемся к странице
         driver.get("https://qa-scooter.praktikum-services.ru/");

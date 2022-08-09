@@ -23,7 +23,6 @@ public class TestHomePageFaqFireFox {
     // Тест первого вопроса
     @Test
     public void test1() {
-        System.setProperty("webdriver.gecko.driver","c:/geckodriver-v0.31.0-win64/geckodriver.exe");
         driver = new FirefoxDriver();
         // подключаемся к странице
         driver.get("https://qa-scooter.praktikum-services.ru/");
@@ -47,7 +46,6 @@ public class TestHomePageFaqFireFox {
     // Тест второго вопроса
     @Test
     public void test2() {
-        System.setProperty("webdriver.gecko.driver","c:/geckodriver-v0.31.0-win64/geckodriver.exe");
         driver = new FirefoxDriver();
         // подключаемся к странице
         driver.get("https://qa-scooter.praktikum-services.ru/");
@@ -71,7 +69,6 @@ public class TestHomePageFaqFireFox {
     // Тест третьего вопроса
     @Test
     public void test3() {
-        System.setProperty("webdriver.gecko.driver","c:/geckodriver-v0.31.0-win64/geckodriver.exe");
         driver = new FirefoxDriver();
         // подключаемся к странице
         driver.get("https://qa-scooter.praktikum-services.ru/");
@@ -95,7 +92,6 @@ public class TestHomePageFaqFireFox {
     // Тест четвертого вопроса
     @Test
     public void test4() {
-        System.setProperty("webdriver.gecko.driver","c:/geckodriver-v0.31.0-win64/geckodriver.exe");
         driver = new FirefoxDriver();
         // подключаемся к странице
         driver.get("https://qa-scooter.praktikum-services.ru/");
@@ -119,7 +115,6 @@ public class TestHomePageFaqFireFox {
     // Тест пятого вопроса
     @Test
     public void test5() {
-        System.setProperty("webdriver.gecko.driver","c:/geckodriver-v0.31.0-win64/geckodriver.exe");
         driver = new FirefoxDriver();
         //    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         // подключаемся к странице
@@ -144,7 +139,6 @@ public class TestHomePageFaqFireFox {
     // Тест шестого вопроса
     @Test
     public void test6() {
-        System.setProperty("webdriver.gecko.driver","c:/geckodriver-v0.31.0-win64/geckodriver.exe");
         driver = new FirefoxDriver();
         // подключаемся к странице
         driver.get("https://qa-scooter.praktikum-services.ru/");
@@ -168,7 +162,6 @@ public class TestHomePageFaqFireFox {
     // Тест седьмого вопроса
     @Test
     public void test7() {
-        System.setProperty("webdriver.gecko.driver","c:/geckodriver-v0.31.0-win64/geckodriver.exe");
         driver = new FirefoxDriver();
         // подключаемся к странице
         driver.get("https://qa-scooter.praktikum-services.ru/");
@@ -192,7 +185,6 @@ public class TestHomePageFaqFireFox {
     // Тест восьмого вопроса
     @Test
     public void test8() {
-        System.setProperty("webdriver.gecko.driver","c:/geckodriver-v0.31.0-win64/geckodriver.exe");
         driver = new FirefoxDriver();
         // подключаемся к странице
         driver.get("https://qa-scooter.praktikum-services.ru/");
