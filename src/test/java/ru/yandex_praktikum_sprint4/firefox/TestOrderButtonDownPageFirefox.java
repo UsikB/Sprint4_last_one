@@ -56,7 +56,7 @@ public class TestOrderButtonDownPageFirefox {
         // подтвержадем сбор куки
         objHomePage.clickCookieButton();
         // ждем кликабельности кнопки
-        objHomePage.scrollToFaqQuestion();
+        objHomePage.scrollToButtonDownPage();
         objHomePage.waitForLoadOrderButtonDownPage();
         objHomePage.clickOrderButtonDownPage();
         //Ждем загрузки и заполняем поля

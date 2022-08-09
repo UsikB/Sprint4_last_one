@@ -186,16 +186,16 @@ public class HomePage {
     }
     //скрол до конпки Заказать снизу
     public void scrollToButtonDownPage() {
-        WebElement element = driver.findElement(orderButtonDownPageBig);
+        WebElement element = driver.findElement(orderButtonDownPageMidle);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(false);", element);
     }
     // метод ожидания кликабильности Заказать снизу
     public void waitForLoadOrderButtonDownPage() {
         new WebDriverWait(driver, 20)
-                .until(ExpectedConditions.elementToBeClickable(orderButtonDownPageBig));
+                .until(ExpectedConditions.elementToBeClickable(orderButtonDownPageMidle));
     }
     // клик по кнопке Заказать снизу
     public void clickOrderButtonDownPage() {
-        driver.findElement(orderButtonDownPageBig).click();
+        driver.findElement(orderButtonDownPageMidle).click();
     }
 }
