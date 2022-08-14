@@ -5,8 +5,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage {
     private WebDriver driver;
+
+    private String mainPageLink = "https://qa-scooter.praktikum-services.ru/";
     // локатор кнопки " Да все привыкли" куки
-    private By CookieButton = By.id("rcc-confirm-button");
+    private By cookieButton = By.id("rcc-confirm-button");
     //локатор списка  «Вопросы о важном», по нему будем ждать загрузки страницы и скролл
     private By faqQuestion = By.className("accordion__button");
     //локатор пункт 1 выпадающего списока в разделе «Вопросы о важном»
@@ -48,20 +50,21 @@ public class HomePage {
     private final By orderButtonUpPage = By.className("Button_Button__ra12g");
     // локатор копки заказать снизу страницы
     private final By orderButtonDownPageMidle = By.xpath(".//button[@class = 'Button_Button__ra12g Button_Middle__1CSJM']");
-    private final By orderButtonDownPageBig = By.xpath(".//button[@class = 'Button_Button__ra12g Button_UltraBig__UU3Lp']");
 
     //конструктор класса HomePage
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
 
+    public String getMainPageLink() {
+        return mainPageLink;
+    }
+
     // ******************************** методы для ЗАДАНИЯ 1*********************************************//
     // проверяем наличие кнопки Куки если есть то нажимаем
     public void clickCookieButton() {
         // получаем список элементов,если он не пустой
-        int i = driver.findElements(CookieButton).size();
-        if (i != 0)
-            driver.findElement(CookieButton).click();
+        new WebDriverWait(driver, 60).until(ExpectedConditions.visibilityOfElementLocated(cookieButton)).click();
     }
 
     // метод ожидания кликабильности списка «Вопросы о важном»
@@ -186,16 +189,16 @@ public class HomePage {
     }
     //скрол до конпки Заказать снизу
     public void scrollToButtonDownPage() {
-        WebElement element = driver.findElement(orderButtonDownPageBig);
+        WebElement element = driver.findElement(orderButtonDownPageMidle);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(false);", element);
     }
     // метод ожидания кликабильности Заказать снизу
     public void waitForLoadOrderButtonDownPage() {
         new WebDriverWait(driver, 20)
-                .until(ExpectedConditions.elementToBeClickable(orderButtonDownPageBig));
+                .until(ExpectedConditions.elementToBeClickable(orderButtonDownPageMidle));
     }
     // клик по кнопке Заказать снизу
     public void clickOrderButtonDownPage() {
-        driver.findElement(orderButtonDownPageBig).click();
+        driver.findElement(orderButtonDownPageMidle).click();
     }
 }

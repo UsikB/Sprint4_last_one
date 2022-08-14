@@ -1,15 +1,18 @@
-package ru.yandex_praktikum_sprint4.firefox;
+package ru.yandex_praktikum_sprint4;
 
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.yandex_praktikum.sprint4.HomePage;
-
 import static org.junit.Assert.assertEquals;
 
-public class TestHomePageFaqFireFox {
+@RunWith(Parameterized.class)
+public class TestHomePageFaq {
    private static final String EXP_FAQ_ANSWER_ITEM1 = "Сутки — 400 рублей. Оплата курьеру — наличными или картой.";
     private static final String EXP_FAQ_ANSWER_ITEM2 = "Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.";
     private static final String EXP_FAQ_ANSWER_ITEM3 = "Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30.";
@@ -19,15 +22,33 @@ public class TestHomePageFaqFireFox {
     private static final String EXP_FAQ_ANSWER_ITEM7 = "Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.";
     private static final String EXP_FAQ_ANSWER_ITEM8 = "Да, обязательно. Всем самокатов! И Москве, и Московской области.";
      WebDriver driver;
+    HomePage objHomePage = new HomePage(driver);
+
+     public TestHomePageFaq(String choosedDriver){
+         if(choosedDriver == "Chrome"){
+             driver = new ChromeDriver();
+         }else if(choosedDriver == "FireFox"){
+             driver = new FirefoxDriver();
+         }
+     }
+
+    @Parameterized.Parameters
+    public static Object[][] getData() {
+        return new Object[][] {
+                { "Chrome"},
+                { "FireFox"},
+        };
+    }
+
+     @Before
+     public void setUp(){
+         driver.get(objHomePage.getMainPageLink());
+     }
 
     // Тест первого вопроса
     @Test
-    public void test1() {
-        System.setProperty("webdriver.gecko.driver","c:/geckodriver-v0.31.0-win64/geckodriver.exe");
-        driver = new FirefoxDriver();
-    // подключаемся к странице
-        driver.get("https://qa-scooter.praktikum-services.ru/");
-        HomePage objHomePage = new HomePage(driver);
+    public void testFaqQuestion1() {
+         HomePage objHomePage = new HomePage(driver);
         // ждем загрузки нужных нам элементов
         objHomePage.waitForLoadHomePage();
         // кликаем по куки если есть
@@ -39,18 +60,10 @@ public class TestHomePageFaqFireFox {
         objHomePage.waitForLoadText(1);
         assertEquals("не совпадает текст ответа в пункте 1",EXP_FAQ_ANSWER_ITEM1,objHomePage.getTextFaqAnswerItem1());
     }
-    @After
-    public void test1down() {
-        // Закрываем браузер
-        driver.quit();
-    }
+
     // Тест второго вопроса
     @Test
-    public void test2() {
-        System.setProperty("webdriver.gecko.driver","c:/geckodriver-v0.31.0-win64/geckodriver.exe");
-        driver = new FirefoxDriver();
-        // подключаемся к странице
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+    public void testFaqQuestion2() {
         HomePage objHomePage = new HomePage(driver);
         // ждем загрузки нужных нам элементов
         objHomePage.waitForLoadHomePage();
@@ -63,18 +76,10 @@ public class TestHomePageFaqFireFox {
         objHomePage.waitForLoadText(2);
         assertEquals("не совпадает текст ответа в пункте 2",EXP_FAQ_ANSWER_ITEM2,objHomePage.getTextFaqAnswerItem2());
     }
-    @After
-    public void test2down() {
-        // Закрываем браузер
-        driver.quit();
-    }
+
     // Тест третьего вопроса
     @Test
-    public void test3() {
-        System.setProperty("webdriver.gecko.driver","c:/geckodriver-v0.31.0-win64/geckodriver.exe");
-        driver = new FirefoxDriver();
-        // подключаемся к странице
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+    public void testFaqQuestion3() {
         HomePage objHomePage = new HomePage(driver);
         // ждем загрузки нужных нам элементов
         objHomePage.waitForLoadHomePage();
@@ -87,18 +92,10 @@ public class TestHomePageFaqFireFox {
         objHomePage.waitForLoadText(3);
         assertEquals("не совпадает текст ответа в пункте 3",EXP_FAQ_ANSWER_ITEM3,objHomePage.getTextFaqAnswerItem3());
     }
-    @After
-    public void test3down() {
-        // Закрываем браузер
-        driver.quit();
-    }
+
     // Тест четвертого вопроса
     @Test
-    public void test4() {
-        System.setProperty("webdriver.gecko.driver","c:/geckodriver-v0.31.0-win64/geckodriver.exe");
-        driver = new FirefoxDriver();
-        // подключаемся к странице
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+    public void testFaqQuestion4() {
         HomePage objHomePage = new HomePage(driver);
         // ждем загрузки нужных нам элементов
         objHomePage.waitForLoadHomePage();
@@ -111,19 +108,10 @@ public class TestHomePageFaqFireFox {
         objHomePage.waitForLoadText(4);
         assertEquals("не совпадает текст ответа в пункте 4",EXP_FAQ_ANSWER_ITEM4,objHomePage.getTextFaqAnswerItem4());
     }
-    @After
-    public void test4down() {
-        // Закрываем браузер
-        driver.quit();
-    }
+
     // Тест пятого вопроса
     @Test
-    public void test5() {
-        System.setProperty("webdriver.gecko.driver","c:/geckodriver-v0.31.0-win64/geckodriver.exe");
-        driver = new FirefoxDriver();
-        //    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        // подключаемся к странице
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+    public void testFaqQuestion5() {
         HomePage objHomePage = new HomePage(driver);
         // ждем загрузки нужных нам элементов
         objHomePage.waitForLoadHomePage();
@@ -136,18 +124,10 @@ public class TestHomePageFaqFireFox {
         objHomePage.waitForLoadText(5);
         assertEquals("не совпадает текст ответа в пункте 5",EXP_FAQ_ANSWER_ITEM5,objHomePage.getTextFaqAnswerItem5());
     }
-    @After
-    public void test5down() {
-        // Закрываем браузер
-        driver.quit();
-    }
+
     // Тест шестого вопроса
     @Test
-    public void test6() {
-        System.setProperty("webdriver.gecko.driver","c:/geckodriver-v0.31.0-win64/geckodriver.exe");
-        driver = new FirefoxDriver();
-        // подключаемся к странице
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+    public void testFaqQuestion6() {
         HomePage objHomePage = new HomePage(driver);
         // ждем загрузки нужных нам элементов
         objHomePage.waitForLoadHomePage();
@@ -160,18 +140,10 @@ public class TestHomePageFaqFireFox {
         objHomePage.waitForLoadText(6);
         assertEquals("не совпадает текст ответа в пункте 6",EXP_FAQ_ANSWER_ITEM6,objHomePage.getTextFaqAnswerItem6());
     }
-    @After
-    public void test6down(){
-        // Закрываем браузер
-        driver.quit();
-    }
+
     // Тест седьмого вопроса
     @Test
-    public void test7() {
-        System.setProperty("webdriver.gecko.driver","c:/geckodriver-v0.31.0-win64/geckodriver.exe");
-        driver = new FirefoxDriver();
-        // подключаемся к странице
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+    public void testFaqQuestion7() {
         HomePage objHomePage = new HomePage(driver);
         // ждем загрузки нужных нам элементов
         objHomePage.waitForLoadHomePage();
@@ -184,18 +156,10 @@ public class TestHomePageFaqFireFox {
         objHomePage.waitForLoadText(7);
         assertEquals("не совпадает текст ответа в пункте 7",EXP_FAQ_ANSWER_ITEM7,objHomePage.getTextFaqAnswerItem7());
     }
-    @After
-    public void test7down() {
-        // Закрываем браузер
-        driver.quit();
-    }
+
     // Тест восьмого вопроса
     @Test
-    public void test8() {
-        System.setProperty("webdriver.gecko.driver","c:/geckodriver-v0.31.0-win64/geckodriver.exe");
-        driver = new FirefoxDriver();
-        // подключаемся к странице
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+    public void testFaqQuestion8() {
         HomePage objHomePage = new HomePage(driver);
         // ждем загрузки нужных нам элементов
         objHomePage.waitForLoadHomePage();
@@ -209,7 +173,7 @@ public class TestHomePageFaqFireFox {
         assertEquals("не совпадает текст ответа в пункте 8",EXP_FAQ_ANSWER_ITEM8,objHomePage.getTextFaqAnswerItem8());
     }
     @After
-    public void test8down() {
+    public void tearDown() {
         // Закрываем браузер
         driver.quit();
     }
