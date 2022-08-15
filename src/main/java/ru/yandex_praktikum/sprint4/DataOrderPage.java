@@ -25,34 +25,42 @@ public class DataOrderPage {
     public DataOrderPage(WebDriver driver) {
         this.driver = driver;
     }
+
     // установить значение в поле name
-    public void setFieldName(String name){
+    public void setFieldName(String name) {
         driver.findElement(fieldName).clear();
         driver.findElement(fieldName).sendKeys(name);
     }
-    public void setFieldSurName(String surName){
+
+    public void setFieldSurName(String surName) {
         driver.findElement(fieldSurName).clear();
         driver.findElement(fieldSurName).sendKeys(surName);
     }
-    public void setFieldAdress(String adress){
+
+    public void setFieldAdress(String adress) {
         driver.findElement(fieldAdress).clear();
         driver.findElement(fieldAdress).sendKeys(adress);
     }
-    public void setFieldMetro(String metro){
+
+    public void setFieldMetro(String metro) {
         driver.findElement(fieldMetro).clear();
-        driver.findElement(fieldMetro).sendKeys(metro + Keys.DOWN+ Keys.ENTER);
+        driver.findElement(fieldMetro).sendKeys(metro + Keys.DOWN + Keys.ENTER);
     }
-    public void setFieldTelefon(String telefon){
+
+    public void setFieldTelefon(String telefon) {
         driver.findElement(fieldTelefon).clear();
         driver.findElement(fieldTelefon).sendKeys(telefon);
     }
+
     public void clickButtonNext() {
         driver.findElement(buttonNext).click();
     }
+
     // метод ожидания загрузки страницы с данными о заказе
     public void waitForLoadOrderPage() {
         new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.elementToBeClickable(buttonNext));
     }
 }
+
 
