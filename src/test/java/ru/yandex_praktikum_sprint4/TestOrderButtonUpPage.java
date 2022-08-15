@@ -28,6 +28,7 @@ public class TestOrderButtonUpPage{
     private String coment;
     WebDriver driver;
 
+    // Конструктор класса с тестируемыми полями в качестве параметров, чтобы запускать тесты с помощью параметризации
     public TestOrderButtonUpPage(String choosedDriver, String name, String surName, String adress, String metro, String telefon, String data, String color, String coment)
     {
         this.name = name;
@@ -46,6 +47,7 @@ public class TestOrderButtonUpPage{
 
     }
 
+    // набор кейсов для проверки позитивного сценария заказа
     @Parameterized.Parameters
     public static Object[][] getData() {
         return new Object[][] {
@@ -58,32 +60,46 @@ public class TestOrderButtonUpPage{
 
     @Test
     public void TestOrderButtonUpPageSuccessOrder() {
-        // подключаемся к странице
         HomePage objHomePage = new HomePage(driver);
         DataOrderPage  objOrderPage = new DataOrderPage(driver);
         DataRentPage   objRentPage = new DataRentPage(driver);
+        // подключаемся к странице
         driver.get(objHomePage.getMainPageLink());
         // подтвержадем сбор куки
         objHomePage.clickCookieButton();
-        // ждем кликабельности кнопки
+        // ждем кликабельности кнопки "Заказать" в верхней части страницы
         objHomePage.waitForLoadOrderButtonUpPage();
+        // кликаем на кнопку "Заказать" в верхней части страницы
         objHomePage.clickOrderButtonUpPage();
-        //Ждем загрузки и заполняем поля
+        //Ждем загрузки страницы
         objOrderPage.waitForLoadOrderPage();
+        // Заполняем поле "Имя"
         objOrderPage.setFieldName(name);
+        // Заполняем поле "Фамилия"
         objOrderPage.setFieldSurName(surName);
+        // Заполняем поле "Адрес"
         objOrderPage.setFieldAdress(adress);
+        // Заполняем поле "Метро"
         objOrderPage.setFieldMetro(metro);
+        // Заполняем поле "Телефон"
         objOrderPage.setFieldTelefon(telefon);
+        // Нажимаем кнопку "Далее"
         objOrderPage.clickButtonNext();
-        // заполняем поля с арендой
+        // ждем загрузку следующей страницы
         objRentPage.waitForLoadOrderPage();
+        // Заполняем поле "Дата"
         objRentPage.setFieldData(data);
+        // Заполняем поле "Срок аренды"
         objRentPage.setFieldPeriodDay();
+        // Заполняем поле "Цвет самоката"
         objRentPage.setСolor(color);
+        // Заполняем поле "Комментарий для курьера"
         objRentPage.setFieldComent(coment);
+        // Нажимаем кнопку "Заказать"
         objRentPage.clickOrderButton();
+        // Подтверждаем заказ
         objRentPage.clickOkButton();
+        // Сравниваем всплывшее модальное окно об "Успешном заказе" с тем, что должно быть.
         String actualElement = new WebDriverWait(driver, 60).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[2]/div[5]/div[1]"))).getText();
         assertEquals("Текст должен совпадать",true, actualElement.startsWith("Заказ оформлен"));
     }
