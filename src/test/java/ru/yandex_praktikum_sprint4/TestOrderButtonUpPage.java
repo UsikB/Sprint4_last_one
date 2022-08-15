@@ -38,9 +38,9 @@ public class TestOrderButtonUpPage{
         this.data = data;
         this.color = color;
         this.coment = coment;
-        if(choosedDriver == "Chrome"){
+        if(choosedDriver.equals("Chrome")){
             driver = new ChromeDriver();
-        }else if(choosedDriver == "FireFox"){
+        }else if(choosedDriver.equals("FireFox")){
             driver = new FirefoxDriver();
         }
 
