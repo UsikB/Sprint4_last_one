@@ -41,9 +41,9 @@ public class DataRentPage {
         }
 
     public void setСolor(String scooterColor){
-        if(scooterColor == GREY){
+        if(scooterColor.equals(GREY)){
             driver.findElement(fieldColorGrey).click();
-        } else if(scooterColor == BLACK){
+        } else if(scooterColor.equals(BLACK)){
             driver.findElement(fieldColorBlack).click();
         }
     }
